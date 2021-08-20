@@ -1,14 +1,20 @@
-import React from 'react';
-export default function Company(props){
+import React,{useState} from 'react';
+import Employee from './employeeComponent';
+export default function Company(){
+    const [compnay ,setcompnay]=useState('');
+    const changevalue = (e) =>{
+        setcompnay(e.target.value)
+    }
  return(
     <div style={{height:"120vh"}}>
-     <p>Company</p>
+     <h3>Company</h3>
    
      <form>
-     <span>Enter compnay:(from child): </span><input type="text" id="name"
-    ></input> <br />
-     <button type="submit"> Submit </button>
+     <span>Enter compnay:(from parent): </span><input type="text" id="name"
+    value={compnay} onChange={(e)=>changevalue(e)}></input> <br />
+     
      </form>
+     <Employee compnay={compnay} changevalue={changevalue} />
      </div>
  )
 
